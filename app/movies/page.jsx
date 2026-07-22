@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const movies = [
   {
     id: 1,
@@ -5,6 +7,7 @@ export const movies = [
     description: "A mind-bending thriller about dreams within dreams.",
     releaseDate: "2010-07-16",
     rating: 8.8,
+    poster:"/Inception.jpg"
   },
   {
     id: 2,
@@ -12,6 +15,7 @@ export const movies = [
     description: "Batman faces the Joker in this action-packed superhero film.",
     releaseDate: "2008-07-18",
     rating: 9.0,
+    poster:"/Dark Knight.jpg"
   },
   {
     id: 3,
@@ -19,6 +23,7 @@ export const movies = [
     description: "A journey through space and time in search of a new home for humanity.",
     releaseDate: "2014-11-07",
     rating: 8.6,
+    poster:"/Interstellar.jpg"
   },
 ];
 
@@ -28,12 +33,17 @@ export default async function Movies() {
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <h1 className="text-4xl font-bold">Movie Explorer</h1>
             <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+        
                 {movies.map((movie) => (
                     <div key={movie.id} className="bg-white p-4 rounded shadow">
                         <h2 className="text-2xl font-semibold">{movie.title}</h2>
                         <p className="mt-2 text-gray-600">{movie.description}</p>   
                         <p className="mt-2 text-gray-500">Release Date: {movie.releaseDate}</p>
                         <p className="mt-2 text-gray-500">Rating: {movie.rating}</p>
+                        <Image src={movie.poster} alt={movie.title} className="mt-4 w-full h-auto rounded"
+                            width={300} height={450}
+                        />
+
                     </div>
                 ))}
             </div>
