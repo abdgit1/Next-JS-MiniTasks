@@ -2,15 +2,13 @@ import {movies} from "../page.jsx";
 import { notFound } from "next/navigation";
 
 export default async function MovieDetails({ params }) {
-  const { id } = await params;
+  const { id } = await new Promise((resolve) => setTimeout(() => resolve(params), 1000)); // Simulate a delay for loading state
   const movie = movies.find((movie) => movie.id === parseInt(id));
 
 
 
     if (!movie) {
             notFound();
-
-        
 
     }
 
