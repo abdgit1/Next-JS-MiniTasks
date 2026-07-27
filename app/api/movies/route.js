@@ -13,9 +13,3 @@ export async function POST(request) {
     movies.push(newMovie);
     return NextResponse.json(newMovie, { status: 201 });
 }
-
-
-
-    
-
-

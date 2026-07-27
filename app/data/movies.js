@@ -10,11 +10,13 @@ export const movies = [
         title: "The Dark Knight",
         description: "Batman faces the Joker.",
         rating: 9.0,
+        p
     },
     {
         id: 3,
         title: "Interstellar",
         description: "A journey through space and time.",
         rating: 8.6,
+        poster: "/Interstellar.jpg",    
     },
 ];

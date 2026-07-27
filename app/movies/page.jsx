@@ -55,7 +55,6 @@ export default async function Movies() {
             <p className="mt-4 text-gray-600">
                 Welcome to Movie Explorer
             </p>
-
             <form
     action="/api/upload"
     method="POST"
@@ -66,7 +65,7 @@ export default async function Movies() {
             {/* <form
                 action={addMovie}
                 className="mt-8 flex flex-col items-center space-y-4"
-            >
+            > */}
                 <input
                     type="text"
                     name="title"
