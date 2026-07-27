@@ -57,6 +57,13 @@ export default async function Movies() {
             </p>
 
             <form
+    action="/api/upload"
+    method="POST"
+    encType="multipart/form-data"
+    className="mt-8 flex flex-col items-center space-y-4"
+>
+
+            {/* <form
                 action={addMovie}
                 className="mt-8 flex flex-col items-center space-y-4"
             >
@@ -78,6 +85,15 @@ export default async function Movies() {
                     placeholder="Movie Rating"
                     className="w-64 p-2 border border-gray-300 rounded"
                 />
+
+                <input
+        type="file"
+        name="poster"
+        accept="image/*"
+        className="w-64 p-2 border border-gray-300 rounded"
+    />
+
+
                 <button
                     type="submit"
                     className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
