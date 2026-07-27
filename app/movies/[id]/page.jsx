@@ -43,3 +43,5 @@ export default async function MovieDetails({ params }) {
     );
 }
 
+
+
