@@ -2,33 +2,34 @@ import Image from "next/image";
 import Likebutton from "./likebutton";
 import { Suspense } from "react";
 import MovieList from "./movieslist";
+import { addMovie } from "./actions";
 
-// export const movies = [
-//   {
-//     id: 1,
-//     title: "Inception",
-//     description: "A mind-bending thriller about dreams within dreams.",
-//     releaseDate: "2010-07-16",
-//     rating: 8.8,
-//     poster:"/Inception.jpg"
-//   },
-//   {
-//     id: 2,
-//     title: "The Dark Knight",
-//     description: "Batman faces the Joker in this action-packed superhero film.",
-//     releaseDate: "2008-07-18",
-//     rating: 9.0,
-//     poster:"/Dark Knight.jpg"
-//   },
-//   {
-//     id: 3,
-//     title: "Interstellar",
-//     description: "A journey through space and time in search of a new home for humanity.",
-//     releaseDate: "2014-11-07",
-//     rating: 8.6,
-//     poster:"/Interstellar.jpg"
-//   },
-// ];
+export const movies = [
+  {
+    id: 1,
+    title: "Inception",
+    description: "A mind-bending thriller about dreams within dreams.",
+    releaseDate: "2010-07-16",
+    rating: 8.8,
+    poster:"/Inception.jpg"
+  },
+  {
+    id: 2,
+    title: "The Dark Knight",
+    description: "Batman faces the Joker in this action-packed superhero film.",
+    releaseDate: "2008-07-18",
+    rating: 9.0,
+    poster:"/Dark Knight.jpg"
+  },
+  {
+    id: 3,
+    title: "Interstellar",
+    description: "A journey through space and time in search of a new home for humanity.",
+    releaseDate: "2014-11-07",
+    rating: 8.6,
+    poster:"/Interstellar.jpg"
+  },
+];
 
 
 
@@ -54,6 +55,36 @@ export default async function Movies() {
             <p className="mt-4 text-gray-600">
                 Welcome to Movie Explorer
             </p>
+
+            <form
+                action={addMovie}
+                className="mt-8 flex flex-col items-center space-y-4"
+            >
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Movie Title"
+                    className="w-64 p-2 border border-gray-300 rounded"
+                />
+                <input
+                    type="text"
+                    name="description"
+                    placeholder="Movie Description"
+                    className="w-64 p-2 border border-gray-300 rounded"
+                />
+                <input
+                    type="number"
+                    name="rating"
+                    placeholder="Movie Rating"
+                    className="w-64 p-2 border border-gray-300 rounded"
+                />
+                <button
+                    type="submit"
+                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                >
+                    Add Movie
+                </button>
+            </form>
 
             <Suspense fallback={<MovieListLoading />}>
                 <MovieList />
