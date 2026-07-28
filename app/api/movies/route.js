@@ -6,6 +6,14 @@ export async function GET() {
 }
 
 export async function POST(request) {
+    const token = request.cookies.get("token")?.value;
+    if (token !== "abc123") {
+        return NextResponse.json(
+            { error: "Unauthorized. Please login first." },
+            { status: 401 }
+        );
+    }
+
     const newMovie = await request.json();
 
     // Assign a new ID to the movie (you can use a more robust method in a real application)
